@@ -22,7 +22,12 @@ class HealthRecords extends React.Component {
           </div>
           <div className='body'>
             <div className='nav'>
-
+                <button>Trends</button>
+                <button>Medications</button>
+                <button>Test Results</button>
+                <button>Current Conditions</button>
+                <button>Allergies</button>
+                <button>Medical History</button>
             </div>
             <div className='content'>
 

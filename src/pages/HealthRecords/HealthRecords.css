@@ -6,6 +6,7 @@
     display: flex;
     display: -webkit-flex;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 #records .header .leftColumn {
@@ -26,4 +27,23 @@
 
 #records .borderLeft {
     border-left: 1px solid black;
+}
+
+#records .nav {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    max-width: 20%;
+}
+
+#records button {
+    margin-bottom: 10px;
+    height: 60px;
+    max-width: 200px;
+    font-family: 'Inter-SemiBold';
+    font-size: 14pt;
+}
+
+#records .body {
+    width: 80%
 }
