@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import HealthRecords from './pages/HealthRecords/HealthRecords';
+import './fonts/Inter/Inter.css';
 
 function App() {
   return (

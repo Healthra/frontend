@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+h1 {
+  font-family: 'Inter-SemiBold';
+  font-size: 24pt;
+}
+
+h2 {
+  font-family: 'Inter-SemiBold';
+  font-size: 16pt;
+}
+
+h3 {
+  font-family: 'Inter-Regular';
+  font-size: 14pt;
+}

@@ -1,0 +1,29 @@
+#records {
+    padding: 10px 30px;
+}
+
+#records .header {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+#records .header .leftColumn {
+    margin-right: 20px;
+}
+
+#records .header .rightColumn {
+    text-align: left;
+}
+
+#records .header h2 {
+    margin: 15px 0 10px 20px;
+}
+
+#records .header h3 {
+    margin: 0 0 15px 20px; 
+}
+
+#records .borderLeft {
+    border-left: 1px solid black;
+}
