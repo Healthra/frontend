@@ -30,7 +30,9 @@ class HealthRecords extends React.Component {
                 <button>Medical History</button>
             </div>
             <div className='content'>
-
+                <div className='card'>
+                    
+                </div>
             </div>
           </div>
       </div>

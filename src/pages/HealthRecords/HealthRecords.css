@@ -29,6 +29,12 @@
     border-left: 1px solid black;
 }
 
+#records .body {
+    display: flex;
+    display: -webkit-flex;
+    height: 77vh;
+}
+
 #records .nav {
     display: flex;
     display: -webkit-flex;
@@ -44,6 +50,19 @@
     font-size: 14pt;
 }
 
-#records .body {
-    width: 80%
+#records .content {
+    width: 80%;
+    padding-left: 30px;
+}
+
+.card {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    border-radius: 13px;
+    padding: 2.5em 3em;
+    margin-bottom: 2em;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
 }
