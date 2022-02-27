@@ -1,5 +1,5 @@
 import React from 'react';
-import './HealthRecords.css';
+import '../pages.css';
 
 class HealthRecords extends React.Component {
   constructor(props) {
