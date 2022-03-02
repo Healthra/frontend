@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../pages.css';
 
 class HealthRecords extends React.Component {
@@ -22,12 +23,24 @@ class HealthRecords extends React.Component {
           </div>
           <div className='body'>
             <div className='nav'>
+              <Link to="/record/trends">
                 <button>Trends</button>
+              </Link>
+              <Link to="/record/medications">
                 <button>Medications</button>
+              </Link>
+              <Link to="/record/results">
                 <button>Test Results</button>
+              </Link>
+              <Link to="/record/conditions">
                 <button>Current Conditions</button>
+              </Link>
+              <Link to="/record/allergies">
                 <button>Allergies</button>
+              </Link>
+              <Link to="/record/history">
                 <button>Medical History</button>
+              </Link>
             </div>
             <div className='content'>
                 <div className='card'>

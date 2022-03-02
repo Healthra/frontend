@@ -48,6 +48,8 @@
     max-width: 200px;
     font-family: 'Inter-SemiBold';
     font-size: 14pt;
+    width: 100%;
+    cursor: pointer;
 }
 
 #records .content {
