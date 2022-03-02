@@ -8,53 +8,65 @@ import {
 } from "@material-ui/core";
 import LeftBar from "./LeftBar";
 import { Link } from "react-router-dom";
-// import "./styles.css"
 
 const useStyles = makeStyles((theme) => ({
-  navlinks: {
-    marginLeft: theme.spacing(10),
+  navBar: {
+    backgroundColor: "white",
+  },
+  toolBar: {
+    width: "100%",
     display: "flex",
+    flexDirection: "row",
+  },
+  navlinks: {
+    display: "flex",
+    flexDirection: "row",
+    flex: 1,
   },
  logo: {
-    marginLeft: 100,
-    flexGrow: "1",
+    marginLeft: 70,
+    paddingTop: 10,
     cursor: "pointer",
+  },
+  logoImage: {
+    width: 200
   },
   link: {
     textDecoration: "none",
-    color: "white",
+    color: "black",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    flex: 1,
     "&:hover": {
       color: "yellow",
       borderBottom: "1px solid white",
     },
   },
+  image: {
+    width: 40,
+    top: 10,
+  }
 }));
 
 function Navbar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="static">
+    <AppBar className={classes.navBar} position="fixed">
       <CssBaseline />
-      <Toolbar>
+      <Toolbar className={classes.toolBar}>
         <LeftBar />
         <Typography variant="h4" className={classes.logo}>
-          Healthra
+          <img className={classes.logoImage} src={require("../../images/healthraLogo.png")} />
         </Typography>
           <div className={classes.navlinks}>
-            <Link to="/" className={classes.link}>
-              Dashboard
-            </Link>
             <Link to="/notification" className={classes.link}>
-              Notifications
+              <img className={classes.image} src={require("../../images/notification.png")}/>
             </Link>
             <Link to="/message" className={classes.link}>
-              Messages
+              <img className={classes.image} src={require("../../images/message.png")}/>
             </Link>
             <Link to="/profile" className={classes.link}>
-              Profile
+              <img className={classes.image} src={require("../../images/profile.png")}/>
             </Link>
           </div>
       </Toolbar>

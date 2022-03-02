@@ -9,10 +9,12 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Routes>
-        <Route path="/" element={<Dashboard name="first last" id="123" email="yes@gmail.com" />} />
-        <Route path="record" element={<HealthRecords />} />
-      </Routes>
+      <div style={{ marginTop: 80 }}>
+        <Routes>
+          <Route path="/" element={<Dashboard name="first last" id="123" email="yes@gmail.com" />} />
+          <Route path="record" element={<HealthRecords />} />
+        </Routes>
+      </div>
     </div>
   );
 }
