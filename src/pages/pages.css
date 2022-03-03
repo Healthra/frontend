@@ -1,5 +1,5 @@
 #records {
-    padding: 10px 30px;
+    padding: 20px 30px;
 }
 
 .header {
@@ -18,15 +18,17 @@
 }
 
 .header h2 {
-    margin: 15px 0 10px 20px;
+    margin: 5px 0 2px 20px;
+    color: #5F5A5A;
 }
 
 .header h3 {
-    margin: 0 0 15px 20px; 
+    margin: 0 0 5px 20px; 
+    color: #5F5A5A;
 }
 
 .borderLeft {
-    border-left: 1px solid black;
+    border-left: 1.5px solid #5f5a5a86;
 }
 
 #records .body {

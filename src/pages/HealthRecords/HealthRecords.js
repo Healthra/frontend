@@ -23,8 +23,8 @@ class HealthRecords extends React.Component {
                 <h1>Health Records</h1>
               </div>
               <div className='rightColumn borderLeft'>
-                  <h2>First Last</h2>
-                  <h3>ID: 0000 email: abc@gmail.com</h3>
+                <h2>Jonathan Klaudius Doe</h2>
+                <h3>ID: 58936 email: jondoe@gmail.com</h3>
               </div>
           </div>
           <div className='body'>
