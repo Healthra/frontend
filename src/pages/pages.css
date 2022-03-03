@@ -2,30 +2,30 @@
     padding: 10px 30px;
 }
 
-#records .header {
+.header {
     display: flex;
     display: -webkit-flex;
     align-items: center;
     margin-bottom: 40px;
 }
 
-#records .header .leftColumn {
+.header .leftColumn {
     margin-right: 20px;
 }
 
-#records .header .rightColumn {
+.header .rightColumn {
     text-align: left;
 }
 
-#records .header h2 {
+.header h2 {
     margin: 15px 0 10px 20px;
 }
 
-#records .header h3 {
+.header h3 {
     margin: 0 0 15px 20px; 
 }
 
-#records .borderLeft {
+.borderLeft {
     border-left: 1px solid black;
 }
 
@@ -64,7 +64,56 @@
     background-color: white;
     border: 1px solid #DCDCDC;
     border-radius: 13px;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
     padding: 2.5em 3em;
     margin-bottom: 2em;
+}
+
+.cardButton {
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    border-radius: 13px;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
+    padding: 1em;
+}
+
+.cardWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardRowWrap {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.appointmentsCard {
+    margin-right: 50px;
+}
+
+.careTeamCard {
+    margin-right: 50px;
+    /* flex: 1 */
+}
+
+.emergencyResourcesCard {
+    margin-right: 50px;
+    /* flex: 1 */
+}
+
+.secondRow {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: -150px;
+}
+
+.medicationCard {
+    margin-right: 50px;
+    /* flex: 1 */
+}
+
+.testResultsCard {
+    margin-right: 50px;
+    /* flex: 1 */
 }
