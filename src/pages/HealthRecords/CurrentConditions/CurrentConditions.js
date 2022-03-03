@@ -1,4 +1,5 @@
 import React from 'react';
+import '../HealthRecords.css';
 
 class CurrentConditions extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class CurrentConditions extends React.Component {
   render() {
     return (
       <div>
-        <h1>Current Conditions</h1>
+        <h1 className='sectionTitle'>Current Conditions</h1>
       </div>
     );
   }

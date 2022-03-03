@@ -1,4 +1,5 @@
 import React from 'react';
+import '../HealthRecords.css';
 
 class Allergies extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Allergies extends React.Component {
   render() {
     return (
       <div>
-        <h1>Allergies</h1>
+        <h1 className='sectionTitle'>Allergies</h1>
       </div>
     );
   }

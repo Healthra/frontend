@@ -1,4 +1,5 @@
 import React from 'react';
+import '../HealthRecords.css';
 
 class TestResults extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class TestResults extends React.Component {
   render() {
     return (
       <div>
-        <h1>Test Results</h1>
+        <h1 className='sectionTitle'>Test Results</h1>
       </div>
     );
   }
