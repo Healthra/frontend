@@ -1,5 +1,11 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, Routes, Route, Navigate } from "react-router-dom";
+import Trends from './Trends/Trends';
+import Medications from './Medications/Medications';
+import TestResults from './TestResults/TestResults';
+import CurrentConditions from './CurrentConditions/CurrentConditions';
+import Allergies from './Allergies/Allergies';
+import MedicalHistory from './Medical History/Medications';
 import '../pages.css';
 
 class HealthRecords extends React.Component {
@@ -44,7 +50,15 @@ class HealthRecords extends React.Component {
             </div>
             <div className='content'>
                 <div className='card'>
-                    
+                <Routes>
+                  <Route path={'/trends'} element={<Trends/>} />
+                  <Route path={'/medications'} element={<Medications/>} />
+                  <Route path={'/results'} element={<TestResults/>} />
+                  <Route path={'/conditions'} element={<CurrentConditions/>} />
+                  <Route path={'/allergies'} element={<Allergies/>} />
+                  <Route path={'/history'} element={<MedicalHistory/>} />
+                  <Route path={'*'} element={<Navigate to='/record/trends'/>} />
+                </Routes>
                 </div>
             </div>
           </div>

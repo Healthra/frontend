@@ -12,7 +12,8 @@ function App() {
       <div style={{ marginTop: 80 }}>
         <Routes>
           <Route path="/" element={<Dashboard name="first last" id="123" email="yes@gmail.com" />} />
-          <Route path="record" element={<HealthRecords />} />
+          <Route path="/record/*" element={<HealthRecords/>} />
+          <Route path="*" element={<div>Error: 404, Not Found</div>} />
         </Routes>
       </div>
     </div>
