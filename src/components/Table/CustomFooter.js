@@ -20,7 +20,6 @@ class CustomFooter extends React.Component {
 
   render() {
     const { count, classes, textLabels, rowsPerPage, page } = this.props;
-    console.log(count, classes, textLabels, page);
     const footerStyle = {
       display:'flex', 
       justifyContent: 'flex-end',

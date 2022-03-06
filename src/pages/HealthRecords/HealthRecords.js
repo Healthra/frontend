@@ -12,8 +12,19 @@ import '../pages.css';
 class HealthRecords extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    let path = window.location.pathname.split('/').pop();
+    if (path === 'record' || path === '') {
+      path = 'trends';
     }
+    this.state = {
+      page: path
+    }
+  }
+
+  handlePageChange(path) {
+    this.setState({
+      page: path
+    });
   }
 
   render() {
@@ -30,23 +41,23 @@ class HealthRecords extends React.Component {
           </div>
           <div className='body'>
             <div className='nav'>
-              <Link to="/record/trends">
-                <button>Trends</button>
+              <Link to="/record/trends" onClick={() => this.handlePageChange("trends")}>
+                <button className={this.state.page === 'trends' ? 'active' : ''}>Trends</button>
               </Link>
-              <Link to="/record/medications">
-                <button>Medications</button>
+              <Link to="/record/medications" onClick={() => this.handlePageChange("medications")}>
+                <button className={this.state.page === 'medications' ? 'active' : ''}>Medications</button>
               </Link>
-              <Link to="/record/results">
-                <button>Test Results</button>
+              <Link to="/record/results" onClick={() => this.handlePageChange("results")}>
+                <button className={this.state.page === 'results' ? 'active' : ''}>Test Results</button>
               </Link>
-              <Link to="/record/conditions">
-                <button>Current Conditions</button>
+              <Link to="/record/conditions" onClick={() => this.handlePageChange("conditions")}>
+                <button className={this.state.page === 'conditions' ? 'active' : ''}>Current Conditions</button>
               </Link>
-              <Link to="/record/allergies">
-                <button>Allergies</button>
+              <Link to="/record/allergies" onClick={() => this.handlePageChange("allergies")}>
+                <button className={this.state.page === 'allergies' ? 'active' : ''}>Allergies</button>
               </Link>
-              <Link to="/record/history">
-                <button>Medical History</button>
+              <Link to="/record/history" onClick={() => this.handlePageChange("history")}>
+                <button className={this.state.page === 'history' ? 'active' : ''}>Medical History</button>
               </Link>
             </div>
             <div className='content'>

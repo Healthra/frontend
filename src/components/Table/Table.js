@@ -38,6 +38,7 @@ class Table extends React.Component {
         print: false,
         filter: false,
         disableToolbarSelect: true,
+        selectToolbarPlacement: "none",
         customToolbar: () => {
             return (
                 <CustomToolbar/>
