@@ -132,3 +132,9 @@
     margin-right: 50px;
     /* flex: 1 */
 }
+
+.appointmentImage {
+    width: 80%;
+    border: 1px solid white;
+    border-radius: 30px;
+}

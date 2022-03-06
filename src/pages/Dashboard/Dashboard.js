@@ -16,19 +16,19 @@ const Dashboard = (props) =>{
       <div className='cardWrap'>
         <div className='cardRowWrap'>
           <div className='appointmentsCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/appointment'}}>
+            <button className='cardButton' onClick={()=> {window.location.href='/appointments'}}>
               {/* Appointments */}
               <img style={{ width: 430 }} src={require("../../images/upcomingAppointments.png")} />
             </button>
           </div>
           <div className='careTeamCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/care-team'}}>
+            <button className='cardButton' onClick={()=> {window.location.href='/careplan'}}>
               {/* Care Team */}
               <img style={{ width: 240 }} src={require("../../images/careTeam.png")} />
             </button>
           </div>
           <div className='emergencyResourcesCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/emergency-resources'}}>
+            <button className='cardButton'>
               {/* Emergency resources */}
               <img style={{ width: 280 }} src={require("../../images/emergencyResources.png")} />
             </button>
