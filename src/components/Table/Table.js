@@ -127,7 +127,7 @@ class Table extends React.Component {
   onRowClick(row) {
       let selectedRows = this.state.selectedRows;      
       for (let i=0; i<selectedRows.length;i++) {
-          if (selectedRows[i].index === row.index) {
+          if (selectedRows[i].dataIndex === row.dataIndex) {
               this.deselectRow(i);
               return;
           }
@@ -177,20 +177,21 @@ class Table extends React.Component {
             this.onRowClick(row);
         },
         rowsSelected: this.state.selectedRows.map((entry) => {
-            return entry.index;
+            return entry.dataIndex;
         }),
         customToolbar: () => {
             return (
                 <CustomToolbar/>
             );
         },
-        customFooter: (count, page, rowsPerPage) => {
+        customFooter: (count, page, rowsPerPage, changeRowsPerPage, changePage) => {
             return (
               <CustomFooter
                 count={count}
                 page={page}
                 rowsPerPage={rowsPerPage}
                 numOfSelectedRows={this.state.selectedRows.length}
+                changePage={changePage}
               />
             );
         }
