@@ -15,7 +15,7 @@ class CustomFooter extends React.Component {
 //   };
 
   handlePageChange = (_, page) => {
-    this.props.changePage(page);
+    this.props.changePage(page-1);
   };
 
   render() {
@@ -26,15 +26,16 @@ class CustomFooter extends React.Component {
       padding: '15px 24px'
     };
 
+    const pageCount = Math.ceil(count/rowsPerPage);
     return (
       <TableFooter>
         <TableRow>
           <TableCell style={footerStyle} colSpan={1000}>
             <Pagination
             //   component="div"
-              count={count}
+              count={pageCount}
             //   rowsPerPage={rowsPerPage}
-              page={page}
+              page={page+1}
             //   labelRowsPerPage={textLabels.rowsPerPage}
             //   labelDisplayedRows={({ from, to, count }) => `${from}-${to} ${textLabels.displayRows} ${count}`}
             //   backIconButtonProps={{

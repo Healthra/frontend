@@ -65,6 +65,11 @@ class Table extends React.Component {
                 ["House Dust", "Medium", "Environment", "Allergy", "Jun-10-2019", "Inactive"],
                 ["Walnuts", "Unable to assess", "Food", "Allergy", "Jun-08-2021", "Active"],
                 ["Morphinan Opioid", "High", "Medication", "Allergy", "Jun-10-2021", "Inactive"],
+                ["Acetaminophen", "Medium", "Medication", "Allergy", "Jun-10-2021", "Inactive"],
+                ["Peanuts", "Low", "Food", "Intolerance", "May-10-2021", "Active"],
+                ["House Dust", "Medium", "Environment", "Allergy", "Jun-10-2019", "Inactive"],
+                ["Walnuts", "Unable to assess", "Food", "Allergy", "Jun-08-2021", "Active"],
+                ["Morphinan Opioid", "High", "Medication", "Allergy", "Jun-10-2021", "Inactive"],
             ];
             break;
         case 'immunizations':
