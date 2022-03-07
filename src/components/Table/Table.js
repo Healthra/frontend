@@ -30,12 +30,42 @@ class Table extends React.Component {
     }
   } 
 
+  compareDates(order, obj1, obj2) {
+    const dateMap = {
+        "jan": 0, "feb": 1, "mar": 2, "apr": 3, "may": 4, "jun": 5, "jul": 6, "aug": 7, "sep": 8, "oct": 9, "nov": 10, "dec": 11
+    }
+    let date1 = obj1.data.split('-');
+
+    let month1 = dateMap[date1[0].toLowerCase()];
+    let day1 = parseInt(date1[1]);
+    let year1 = parseInt(date1[2]);
+
+    let date2 = obj2.data.split('-');
+    let month2 = dateMap[date2[0].toLowerCase()];
+    let day2 = parseInt(date2[1]);
+    let year2 = parseInt(date2[2]);
+
+    let val1 = new Date(year1, month1, day1);
+    let val2 = new Date(year2, month2, day2);
+    return (val1 - val2) * (order === 'asc' ? 1 : -1);
+  }
+
   getTableInfo() {
     let columns = [];
     let data = [];
     switch(this.state.page) {
         case 'medications':
-            columns = ["Name", "Directions", "Dosage", "Prescribed by", "Prescribed", "Status"];
+            columns = [{name: "Name",}, {name: "Directions",}, {name: "Dosage",}, {name: "Prescribed by",}, 
+            {
+                name: "Prescribed",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }, {name: "Status"}];
             data = [
                 ["Levothyroxine", "2 tablets/day", "20 mg", "Dr. Anish Giri", "Jun-10-2000", "Active"],
                 ["Lisinopril", "3 tablets/day", "25 mg", "Dr. Ellen Jones", "Jun-10-2018", "Active"],
@@ -43,7 +73,16 @@ class Table extends React.Component {
             ];
             break;
         case 'results':
-            columns = ["Name", "Collection Date", "Category", "Ordered by", "Result"];
+            columns = [{name: "Name",}, {
+                name: "Collection Date",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }, {name: "Category",}, {name: "Ordered by",}, {name: "Result"}];
             data = [
                 ["Complete Blood Count (CBC)", "Nov-02,2020", "Hematology", "Dr. Anish Giri", "Warning"],
                 ["Basic Metabolic Panel (BMP)",  "May-02,2020", "Hematology", "Dr. Anna Donovali", "Pass"],
@@ -52,7 +91,16 @@ class Table extends React.Component {
             ];
             break;
         case 'conditions':
-            columns = ["Name", "Severity", "Recorded by", "Onset Date"];
+            columns = [{name: "Name",}, {name: "Severity",}, {name: "Recorded by",}, {
+                name:"Onset Date",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }];
             data = [
                 ["Depression", "Mild", "Dr. Anish Giri", "Jul-03-2021"],
                 ["PTSD", "Mild", "Dr. Anish Giri", "Jul-13-2021"],
@@ -62,7 +110,16 @@ class Table extends React.Component {
             ]
             break;
         case 'allergies':
-            columns = ["Name", "Criticality", "Category", "Type", "Onset Date", "Status"];
+            columns = [{name:"Name"}, {name:"Criticality"}, {name:"Category"}, {name:"Type"}, {
+                name: "Onset Date",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }, {name:"Status"}];
             data = [
                 ["Acetaminophen", "High", "Medication", "Allergy", "Jun-10-2021", "Inactive"],
                 ["Peanuts", "Low", "Food", "Intolerance", "May-10-2021", "Active"],
@@ -77,7 +134,16 @@ class Table extends React.Component {
             ];
             break;
         case 'immunizations':
-            columns = ["Vaccine", "Type", "Doses Received", "Administered by", "Administered"];
+            columns = [{name:"Vaccine"}, {name:"Type"}, {name:"Doses Received"}, {name:"Administered by"}, {
+                name:"Administered",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }];
             data = [
                 ["Influenza", "Seasonal", "2", "Dr. Ellen Jones", "Jul-02-2022"],
                 ["Hepatitus A", "Pediatric", "1", "Dr. Emil Jones", "Jul-03-2022"],
@@ -95,7 +161,16 @@ class Table extends React.Component {
             ];
             break;
         case 'procedures':
-            columns = ["Name", "Category", "Location", "Performed by", "Performed"];
+            columns = ["Name", "Category", "Location", "Performed by", {
+                name:"Performed",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }];
             data = [
                 ["Psychological Evaluation", "Psychiatry", "Dufferin Hospital", "Dr. Ellen Jones", "Jul-02-2022"],
                 ["Brain Surgery", "Surgical", "Dufferin Hospital", "Dr. Emil Jones", "Jul-03-2022"],
@@ -103,7 +178,16 @@ class Table extends React.Component {
             ];
             break;
         case 'illnesses':
-            columns = ["Name", "Severity", "Recorded by", "Onset Date"];
+            columns = ["Name", "Severity", "Recorded by", {
+                name:"Onset Date",
+                options: {
+                    sortCompare: (order) => {
+                        return (obj1, obj2) => {
+                            return this.compareDates(order, obj1, obj2);
+                        }
+                    }
+                }
+            }];
             data = [
                 ["Addiction", "Severe", "Dr. Ellen Jones", "Jul-02-2022"],
                 ["Eating Disorder", "Moderate", "Dr. Emil Jones", "Jul-03-2022"],
@@ -164,6 +248,7 @@ class Table extends React.Component {
         download: false,
         print: false,
         filter: false,
+        filterType: 'multiselect',
         disableToolbarSelect: true,
         selectToolbarPlacement: "none",
         onRowSelectionChange: (currentRow, allRows) => {

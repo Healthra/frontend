@@ -7,8 +7,7 @@ import PrintIcon from '@mui/icons-material/Print';
 import { styled } from '@mui/material/styles';
 
 const defaultToolbarStyles = {
-  iconButton: {
-  },
+
 };
 
 const StyledButton = styled(Button)({
