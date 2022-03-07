@@ -71,7 +71,9 @@ class HealthRecords extends React.Component {
                     <Route path={'/history'} element={<MedicalHistory/>} />
                     <Route path={'*'} element={<Navigate to='/record/trends'/>} />
                   </Routes>
-                  <Table/>
+                  <div className={this.state.page === 'trends' ? 'hide' : ''}>
+                    <Table page={this.state.page}/>
+                  </div>
                 </div>
             </div>
           </div>
