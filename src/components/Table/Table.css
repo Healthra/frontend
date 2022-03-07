@@ -45,10 +45,27 @@
 
 .css-1w1rijm-MuiButtonBase-root-MuiButton-root {
     width: 100% !important;
-    font-family: 'Inter-Medium' !important;
+    font-family: 'Inter-SemiBold' !important;
 }
 
 .tss-178gktx-MUIDataTableHeadCell-contentWrapper {
     width: 100% !important;
     justify-content: center !important;
+}
+
+.css-hbtnrh-MuiTableCell-root {
+    background-color: #5f5a5a0d !important;
+}
+
+.css-1ygcj2i-MuiTableCell-root {
+    background-color: #5f5a5a0d !important;
+}
+
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+    font-family: 'Inter-SemiBold' !important;
+    color: #4F734B !important;
+}
+
+.css-ghsjzk-MuiInputBase-root-MuiInput-root:after {
+    border-bottom: 2px solid #4F734B !important;
 }
