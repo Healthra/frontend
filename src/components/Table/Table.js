@@ -3,6 +3,7 @@ import './Table.css';
 import MUIDataTable from "mui-datatables";
 import CustomToolbar from './CustomToolbar';
 import CustomFooter from './CustomFooter';
+import { TransferWithinAStation } from '@material-ui/icons';
 
 class Table extends React.Component {
   constructor(props) {
@@ -10,8 +11,11 @@ class Table extends React.Component {
     this.state = {
         page: this.props.page,
         columns: [],
-        data: []
+        data: [],
+        selectedRows: []
     }
+
+    this.onRowSelectionChange = this.onRowSelectionChange.bind(this);
   }
   
   componentDidMount() {
@@ -114,6 +118,12 @@ class Table extends React.Component {
     })
   }
 
+  onRowSelectionChange(allRows) {
+      this.setState({
+          selectedRows: allRows
+      })
+  }
+
   render() {
     let columns = this.state.columns;
     let data = this.state.data;
@@ -129,20 +139,21 @@ class Table extends React.Component {
         filter: false,
         disableToolbarSelect: true,
         selectToolbarPlacement: "none",
+        onRowSelectionChange: (currentRow, allRows) => {
+            this.onRowSelectionChange(allRows)
+        },
         customToolbar: () => {
             return (
                 <CustomToolbar/>
             );
         },
-        customFooter: (count, page, rowsPerPage, changeRowsPerPage, changePage, textLabels) => {
+        customFooter: (count, page, rowsPerPage) => {
             return (
               <CustomFooter
                 count={count}
                 page={page}
                 rowsPerPage={rowsPerPage}
-                changeRowsPerPage={changeRowsPerPage}
-                changePage={changePage}
-                textLabels={textLabels}
+                numOfSelectedRows={this.state.selectedRows.length}
               />
             );
         }

@@ -61,11 +61,17 @@
     background-color: #5f5a5a0d !important;
 }
 
-.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+.css-rppfq7-MuiButtonBase-root-MuiPaginationItem-root {
     font-family: 'Inter-SemiBold' !important;
     color: #4F734B !important;
 }
 
 .css-ghsjzk-MuiInputBase-root-MuiInput-root:after {
     border-bottom: 2px solid #4F734B !important;
+}
+
+#records td p {
+    color: #5F5A5A;
+    font-family: 'Inter-Medium';
+    margin-right: 15px;
 }

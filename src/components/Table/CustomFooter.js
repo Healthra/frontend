@@ -10,43 +10,39 @@ const defaultFooterStyles = {
 
 class CustomFooter extends React.Component {
 
-//   handleRowChange = event => {
-//     this.props.changeRowsPerPage(event.target.value);
-//   };
-
   handlePageChange = (_, page) => {
-    this.props.changePage(page-1);
+    let pageIndex = page-1;
+    this.props.changePage(pageIndex);
   };
 
   render() {
-    const { count, classes, textLabels, rowsPerPage, page } = this.props;
+    const { count, rowsPerPage, page, numOfSelectedRows } = this.props;
     const footerStyle = {
       display:'flex', 
       justifyContent: 'flex-end',
-      padding: '15px 24px'
+      padding: '8px 24px',
+      alignItems: 'center'
     };
 
     const pageCount = Math.ceil(count/rowsPerPage);
+    const currentPage = page+1;
+    const from = (page*rowsPerPage)+1;
+    let to = currentPage*rowsPerPage;
+    if (count < to) {
+      to = count;
+    }
     return (
       <TableFooter>
         <TableRow>
           <TableCell style={footerStyle} colSpan={1000}>
+            <p className={numOfSelectedRows === 0 ? 'hide' : ''} style={{marginRight:'auto'}}>{numOfSelectedRows} row(s) selected</p>
+            <p className={count === 0 ? 'hide' : ''}>{from}-{to} of {count}</p>
             <Pagination
-            //   component="div"
               count={pageCount}
-            //   rowsPerPage={rowsPerPage}
-              page={page+1}
-            //   labelRowsPerPage={textLabels.rowsPerPage}
-            //   labelDisplayedRows={({ from, to, count }) => `${from}-${to} ${textLabels.displayRows} ${count}`}
-            //   backIconButtonProps={{
-            //     'aria-label': textLabels.previous,
-            //   }}
-            //   nextIconButtonProps={{
-            //     'aria-label': textLabels.next,
-            //   }}
-            //   rowsPerPageOptions={[5,10,15]}
+              page={currentPage}
+              size="large"
               onChange={this.handlePageChange}
-            //   onChangeRowsPerPage={this.handleRowChange}
+              className={count <= rowsPerPage ? 'hide' : ''}
             />
           </TableCell>
         </TableRow>
