@@ -5,26 +5,46 @@ import Medications from './Medications/Medications';
 import TestResults from './TestResults/TestResults';
 import CurrentConditions from './CurrentConditions/CurrentConditions';
 import Allergies from './Allergies/Allergies';
-import MedicalHistory from './Medical History/Medications';
+import MedicalHistory from './MedicalHistory/MedicalHistory';
 import Table from '../../components/Table/Table';
 import '../pages.css';
 
 class HealthRecords extends React.Component {
   constructor(props) {
     super(props);
-    let path = window.location.pathname.split('/').pop();
-    if (path === 'record' || path === '') {
-      path = 'trends';
-    }
+    let page = this.getPage(window.location.pathname.split('/'));
     this.state = {
-      page: path
+      page: page
     }
+    this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  getPage(path) {
+    let page = path.pop();
+    if (page === '' && path.length) {
+      page = page.pop();
+    }
+    if (page === 'record') {
+      page = 'trends';
+    }
+    else if (page === 'history') {
+      page = 'immunizations';
+    }
+    return page;
   }
 
   handlePageChange(path) {
     this.setState({
       page: path
     });
+  }
+
+  isOnHistoryPage(page) {
+    let historyTabs = ['immunizations', 'family', 'procedures', 'illnesses'];
+    if (historyTabs.indexOf(page) > -1) {
+      return true;
+    }
+    return false;
   }
 
   render() {
@@ -56,8 +76,8 @@ class HealthRecords extends React.Component {
               <Link to="/record/allergies" onClick={() => this.handlePageChange("allergies")}>
                 <button className={this.state.page === 'allergies' ? 'active' : ''}>Allergies</button>
               </Link>
-              <Link to="/record/history" onClick={() => this.handlePageChange("history")}>
-                <button className={this.state.page === 'history' ? 'active' : ''}>Medical History</button>
+              <Link to="/record/history/immunizations" onClick={() => this.handlePageChange("immunizations")}>
+                <button className={this.isOnHistoryPage(this.state.page) ? 'active' : ''}>Medical History</button>
               </Link>
             </div>
             <div className='content'>
@@ -68,7 +88,11 @@ class HealthRecords extends React.Component {
                     <Route path={'/results'} element={<TestResults/>} />
                     <Route path={'/conditions'} element={<CurrentConditions/>} />
                     <Route path={'/allergies'} element={<Allergies/>} />
-                    <Route path={'/history'} element={<MedicalHistory/>} />
+                    <Route path={'/history/immunizations'} element={<MedicalHistory page="immunizations" handlePageChange={this.handlePageChange}/>} />
+                    <Route path={'/history/family'} element={<MedicalHistory page="family" handlePageChange={this.handlePageChange}/>} />
+                    <Route path={'/history/procedures'} element={<MedicalHistory page="procedures" handlePageChange={this.handlePageChange}/>} />
+                    <Route path={'/history/illnesses'} element={<MedicalHistory page="illnesses" handlePageChange={this.handlePageChange}/>} />
+                    <Route path={'/history'} element={<Navigate to='/record/history/immunizations'/>} />
                     <Route path={'*'} element={<Navigate to='/record/trends'/>} />
                   </Routes>
                   <div className={this.state.page === 'trends' ? 'hide' : ''}>

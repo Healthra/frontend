@@ -67,12 +67,38 @@ class Table extends React.Component {
                 ["Morphinan Opioid", "High", "Medication", "Allergy", "Jun-10-2021", "Inactive"],
             ];
             break;
-        case 'history':
+        case 'immunizations':
             columns = ["Vaccine", "Type", "Doses Received", "Administered by", "Administered"];
             data = [
                 ["Influenza", "Seasonal", "2", "Dr. Ellen Jones", "Jul-02-2022"],
                 ["Hepatitus A", "Pediatric", "1", "Dr. Emil Jones", "Jul-03-2022"],
                 ["Cholera", "Unspecified", "2", "Dr. Emma Yang", "Sep-02-2022"],
+            ];
+            break;
+        case 'family':
+            columns = ["Condition", "Member Name", "Relationship", "Age at Diagnosis"];
+            data = [
+                ["Depression", "Ella Jones", "Mother", "22"],
+                ["Anxiety", "Emil Jones", "Father", "23"],
+                ["Depression", "Emmalina Brown", "Grandmother", "33"],
+                ["PTSD", "Jordan Brown", "Grandfather", "30"],
+                ["Depression", "Elsa Jones", "Sister", "18"],
+            ];
+            break;
+        case 'procedures':
+            columns = ["Name", "Category", "Location", "Performed by", "Performed"];
+            data = [
+                ["Psychological Evaluation", "Psychiatry", "Dufferin Hospital", "Dr. Ellen Jones", "Jul-02-2022"],
+                ["Brain Surgery", "Surgical", "Dufferin Hospital", "Dr. Emil Jones", "Jul-03-2022"],
+                ["Heart Surgery", "Surgical", "Caledon Hospital", "Dr. Emma Yang", "Sep-02-2022"],
+            ];
+            break;
+        case 'illnesses':
+            columns = ["Name", "Severity", "Recorded by", "Onset Date"];
+            data = [
+                ["Addiction", "Severe", "Dr. Ellen Jones", "Jul-02-2022"],
+                ["Eating Disorder", "Moderate", "Dr. Emil Jones", "Jul-03-2022"],
+                ["PTSD", "Mild", "Dr. Emma Yang", "Sep-02-2022"],
             ];
             break;
         default:

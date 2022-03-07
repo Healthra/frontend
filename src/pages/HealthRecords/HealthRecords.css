@@ -3,3 +3,37 @@
     margin: 0 0 20px 0;
     text-align: left;
 }
+
+.medicalHistoryHeader {
+    display: flex;
+    align-items: center;
+}
+
+.medicalHistoryHeader h1 {
+    margin-right: 47px;
+}
+
+.medicalHistoryHeader h2 {
+    margin-top: 0;
+    margin-right: 22px;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+.medicalHistoryHeader .active {
+    color: #4F734B;
+    border-bottom: 2px solid #4F734B;
+}
+
+.medicalHistoryHeader .inactive {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.medicalHistoryHeader .inactive:hover {
+    color: #4F734B;
+    border-bottom: 2px solid #4F734B;
+}
+
+.medicalHistoryHeader a {
+    text-decoration: none;
+}
