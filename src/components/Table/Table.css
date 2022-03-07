@@ -75,3 +75,7 @@
     font-family: 'Inter-Medium';
     margin-right: 15px;
 }
+
+.tss-mwfche-MUIDataTableBodyRow-root:hover {
+    cursor: pointer;
+}

@@ -25,7 +25,8 @@ class Table extends React.Component {
   componentDidUpdate(prevProps) {
     if(this.props.page !== prevProps.page) {
         this.setState({
-            page: this.props.page
+            page: this.props.page,
+            selectedRows: []
         }, this.getTableInfo);
     }
   } 
@@ -124,6 +125,33 @@ class Table extends React.Component {
       })
   }
 
+  onRowClick(row) {
+      let selectedRows = this.state.selectedRows;      
+      for (let i=0; i<selectedRows.length;i++) {
+          if (selectedRows[i].index === row.index) {
+              this.deselectRow(i);
+              return;
+          }
+      }
+      this.selectRow(row);
+  }
+
+  deselectRow(index) {
+    let selectedRows = this.state.selectedRows;
+    selectedRows.splice(index, 1);
+    this.setState({
+        selectedRows: selectedRows
+    })
+  }
+
+  selectRow(row) {
+    let selectedRows = this.state.selectedRows;      
+    selectedRows.push(row);
+    this.setState({
+        selectedRows: selectedRows
+    })
+  }
+
   render() {
     let columns = this.state.columns;
     let data = this.state.data;
@@ -142,6 +170,16 @@ class Table extends React.Component {
         onRowSelectionChange: (currentRow, allRows) => {
             this.onRowSelectionChange(allRows)
         },
+        onRowClick: (rowData, rowMeta) => {
+            let row = {
+                index: rowMeta.rowIndex,
+                dataIndex: rowMeta.dataIndex
+            }
+            this.onRowClick(row);
+        },
+        rowsSelected: this.state.selectedRows.map((entry) => {
+            return entry.index;
+        }),
         customToolbar: () => {
             return (
                 <CustomToolbar/>
