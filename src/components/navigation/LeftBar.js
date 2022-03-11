@@ -20,7 +20,7 @@ export default props => {
 
   return (
     <Menu {...props}>
-      <a href="/">
+      <a href="/dashboard">
         <img style={{ width: 200, paddingBottom: 20 }} src={require("../../images/healthraLogo.png")} />
       </a>
       <a className="menu-item" href="/dashboard">
