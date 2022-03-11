@@ -32,11 +32,11 @@ export default props => {
       <a class="dropdown-btn" href="/record">Health Records
         <i class="fa fa-caret-down"></i>
       </a>
-      <div class="dropdown-container">
+      {/* <div class="dropdown-container">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
-      </div>
+      </div> */}
       <a className="menu-item" href="/appointments">
         Appointments
       </a>

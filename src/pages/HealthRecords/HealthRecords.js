@@ -7,6 +7,7 @@ import CurrentConditions from './CurrentConditions/CurrentConditions';
 import Allergies from './Allergies/Allergies';
 import MedicalHistory from './MedicalHistory/MedicalHistory';
 import Table from '../../components/Table/Table';
+import Chart from '../../components/Chart/Chart'
 import '../pages.css';
 
 class HealthRecords extends React.Component {
@@ -95,6 +96,9 @@ class HealthRecords extends React.Component {
                     <Route path={'/history'} element={<Navigate to='/record/history/immunizations'/>} />
                     <Route path={'*'} element={<Navigate to='/record/trends'/>} />
                   </Routes>
+                  <div className={this.state.page === 'trends' ? '' : 'hide'}>
+                    <Chart />
+                  </div>
                   <div className={this.state.page === 'trends' ? 'hide' : ''}>
                     <Table page={this.state.page}/>
                   </div>
