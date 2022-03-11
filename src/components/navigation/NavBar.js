@@ -48,7 +48,7 @@ function Navbar() {
       <CssBaseline />
       <Toolbar className={classes.toolBar}>
         <LeftBar />
-        <Link to="/dashboard">
+        <Link to="/">
           <img className={classes.logoImage} src={require("../../images/healthraLogo.png")} />
         </Link>
         <div className={classes.navlinks}>
