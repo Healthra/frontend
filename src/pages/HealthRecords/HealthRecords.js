@@ -10,14 +10,69 @@ import Table from '../../components/Table/Table';
 import Chart from '../../components/Chart/Chart'
 import '../pages.css';
 
+const API_URL = 'http://localhost:8080/healthrecords?email=abc@gmail.com';
+
 class HealthRecords extends React.Component {
   constructor(props) {
     super(props);
     let page = this.getPage(window.location.pathname.split('/'));
     this.state = {
-      page: page
+      page: page,
+      data: {},
+      email: 'abc@gmail.com',
+      name: '',
+      id: '',
+      isLoading: true
     }
     this.handlePageChange = this.handlePageChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  async getData() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Origin','http://localhost:3000');
+
+    try {
+        var response = await fetch(API_URL, 
+        {
+          method: "GET",
+          headers: headers
+        });
+        var resp = await response.json();
+        if (resp) {
+          let name = '';
+          let id = '';
+          if (resp.patient) {
+            name = resp.patient.firstname + " " + resp.patient.lastname;
+            id = resp.patient.ID
+          }
+          let data = {
+            "medications": resp.medications,
+            "results": resp.diagnosticReports,
+            "conditions": resp.currentConditions,
+            "allergies": resp.allergyIntolerances,
+            "immunizations": resp.immunizations,
+            "family": resp.familyMemberHistories,
+            "procedures": resp.procedures,
+            "illnesses": resp.pastIllnesses
+          }
+          this.setState({
+            name: name,
+            id: id,
+            data: data,
+          })
+        }
+      }
+    catch(err) {
+        console.log('err',err)
+    }
+    this.setState({
+      isLoading: false
+    })
   }
 
   getPage(path) {
@@ -56,8 +111,8 @@ class HealthRecords extends React.Component {
                 <h1>Health Records</h1>
               </div>
               <div className='rightColumn borderLeft'>
-                <h2>Jonathan Klaudius Doe</h2>
-                <h3>ID: 58936 email: jondoe@gmail.com</h3>
+                <h2>{this.state.name}</h2>
+                <h3>ID: {this.state.id} email: {this.state.email}</h3>
               </div>
           </div>
           <div className='body'>
@@ -100,7 +155,7 @@ class HealthRecords extends React.Component {
                     <Chart />
                   </div>
                   <div className={this.state.page === 'trends' ? 'hide' : ''}>
-                    <Table page={this.state.page}/>
+                    <Table page={this.state.page} data={this.state.data} needsUpdate={!this.state.isLoading}/>
                   </div>
                 </div>
             </div>
