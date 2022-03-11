@@ -8,7 +8,7 @@ import { withStyles } from "tss-react/mui";
 const defaultFooterStyles = {
 };
 
-class CustomFooter extends React.Component {
+class Footer extends React.Component {
 
   handlePageChange = (_, page) => {
     let pageIndex = page-1;
@@ -52,4 +52,4 @@ class CustomFooter extends React.Component {
 
 }
 
-export default withStyles(CustomFooter, defaultFooterStyles, { name: "CustomFooter" });
+export default withStyles(Footer, defaultFooterStyles, { name: "Footer" });

@@ -2,7 +2,10 @@ import React from 'react';
 import './Table.css';
 import MUIDataTable from "mui-datatables";
 import CustomToolbar from './CustomToolbar';
-import CustomFooter from './CustomFooter';
+import Footer from './Footer/Footer';
+import Filter from './Buttons/Filter';
+import Download from './Buttons/Download';
+import Print from './Buttons/Print';
 
 class Table extends React.Component {
   constructor(props) {
@@ -247,8 +250,8 @@ class Table extends React.Component {
         rowsPerPageOptions: [5, 10, 15],
         download: false,
         print: false,
-        filter: false,
-        filterType: 'multiselect',
+        filter: true,
+        filterType: 'checkbox',
         disableToolbarSelect: true,
         selectToolbarPlacement: "none",
         onRowSelectionChange: (currentRow, allRows) => {
@@ -271,7 +274,7 @@ class Table extends React.Component {
         },
         customFooter: (count, page, rowsPerPage, changeRowsPerPage, changePage) => {
             return (
-              <CustomFooter
+              <Footer
                 count={count}
                 page={page}
                 rowsPerPage={rowsPerPage}
@@ -281,6 +284,13 @@ class Table extends React.Component {
             );
         }
     };
+    const components = {
+        icons: {
+            FilterIcon: Filter,
+            DownloadIcon: Download,
+            PrintIcon: Print,
+        }
+    }
     return (
       <div>
         <MUIDataTable 
@@ -288,6 +298,7 @@ class Table extends React.Component {
             data={data} 
             columns={columns} 
             options={options} 
+            components={components}
         />
       </div>
     );

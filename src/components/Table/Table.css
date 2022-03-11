@@ -79,3 +79,80 @@
 .tss-mwfche-MUIDataTableBodyRow-root:hover {
     cursor: pointer;
 }
+
+.filterPopover {
+    min-width: 400px;
+    min-height: 200px;
+    padding: 10px;
+}
+
+.filterPopover p {
+    margin: 0 0 5px 0;
+}
+
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root:hover {
+    background-color: transparent !important;
+}
+
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+    padding: 0 !important;
+}
+
+.MuiTooltip-tooltip {
+    display: none !important;
+}
+
+.css-ubpweo-MuiPaper-root-MuiPopover-paper {
+    top: 340px !important;
+    left: 500px !important;
+    transform-origin: 400px 0px !important;
+}
+
+.tss-5r15im-MUIDataTableToolbar-filterCloseIcon {
+    margin: 5px !important;
+}
+
+.css-e784if-MuiTypography-root {
+    font-family: 'Inter-Medium' !important;
+    font-size: 12pt !important;
+    padding-right: 10px !important;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    vertical-align: baseline !important;
+    padding: 0 !important;
+    font-size: 12pt !important;
+    font-family: 'Inter-Medium' !important;
+}
+
+.css-10hburv-MuiTypography-root {
+    font-family: 'Inter-Regular' !important;
+}
+
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.MuiSelect-select {
+    font-family: 'Inter-Regular' !important;
+}
+
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
+    font-family: 'Inter-Regular' !important;
+}
+
+.css-6od3lo-MuiChip-label {
+    font-family: 'Inter-Regular' !important;
+}
+
+.css-yf8vq0-MuiSelect-nativeInput::-moz-placeholder {
+    font-family: 'monospace' !important;
+}
+
+.tss-1vsygk-MUIDataTableFilterList-root {
+    margin: 0px 16px 7px 16px !important;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    color: #2d1ad5 !important;
+}
+
+.css-iqd1hh-MuiButtonBase-root-MuiChip-root {
+    margin-right: 5px !important;
+}

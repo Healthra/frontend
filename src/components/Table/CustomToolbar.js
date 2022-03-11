@@ -29,21 +29,16 @@ const StyledButton = styled(Button)({
   });
 
 class CustomToolbar extends React.Component {
-  
-    handleClick = () => {
-        console.log("clicked on button!");
-    }
-
     render() {
         return (
             <React.Fragment>
-                <StyledButton variant="contained" startIcon={<FilterAltIcon />} onClick={this.handleClick}>
+                {/* <StyledButton variant="contained" startIcon={<FilterAltIcon />} onClick={this.openFilterPopover}>
                     Filter
-                </StyledButton> 
-                <StyledButton variant="contained" startIcon={<DownloadIcon />} onClick={this.handleClick}>
+                </StyledButton>  */}
+                <StyledButton variant="contained" startIcon={<DownloadIcon />} onClick={this.handleDownloadClick}>
                     Download
                 </StyledButton> 
-                <StyledButton variant="contained" startIcon={<PrintIcon />} onClick={this.handleClick}>
+                <StyledButton variant="contained" startIcon={<PrintIcon />} onClick={this.handlePrintClick}>
                     Print
                 </StyledButton> 
             </React.Fragment>
