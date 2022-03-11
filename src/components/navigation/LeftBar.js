@@ -1,5 +1,7 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
+import { Link } from "react-router-dom";
+
 import "./styles.css"
 
 export default props => {
@@ -20,29 +22,26 @@ export default props => {
 
   return (
     <Menu {...props}>
-      <a href="/">
+      <Link to="/">
         <img style={{ width: 200, paddingBottom: 20 }} src={require("../../images/healthraLogo.png")} />
-      </a>
-      <a className="menu-item" href="/">
+      </Link>
+      <Link className="menu-item" to="/">
         Home
-      </a>
-      {/* <a className="menu-item" href="/record">
-        Health Records
-      </a> */}
-      <a class="dropdown-btn" href="/record">Health Records
+      </Link>
+      <Link class="dropdown-btn" to="/record">Health Records
         <i class="fa fa-caret-down"></i>
-      </a>
+      </Link>
       {/* <div class="dropdown-container">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
       </div> */}
-      <a className="menu-item" href="/appointments">
+      <Link className="menu-item" to="/appointments">
         Appointments
-      </a>
-      <a className="menu-item" href="/careplan">
+      </Link>
+      <Link className="menu-item" to="/careplan">
         Care Plan
-      </a>
+      </Link>
     </Menu>
   );
 };

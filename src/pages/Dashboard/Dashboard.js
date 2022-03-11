@@ -16,13 +16,13 @@ const Dashboard = (props) =>{
       <div className='cardWrap'>
         <div className='cardRowWrap'>
           <div className='appointmentsCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/appointments'}}>
+            <button className='cardButton' onClick={()=> {window.location.href='/frontend/appointments'}}>
               {/* Appointments */}
               <img style={{ width: 430 }} src={require("../../images/upcomingAppointments.png")} />
             </button>
           </div>
           <div className='careTeamCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/careplan'}}>
+            <button className='cardButton' onClick={()=> {window.location.href='/frontend/careplan'}}>
               {/* Care Team */}
               <img style={{ width: 240 }} src={require("../../images/careTeam.png")} />
             </button>
@@ -36,13 +36,13 @@ const Dashboard = (props) =>{
         </div>
         <div className='secondRow'>
           <div className='medicationCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/record/medications'}}>
+            <button className='cardButton' onClick={()=> {window.location.href='/frontend/record/medications'}}>
               {/* Medication */}
               <img style={{ width: 350 }} src={require("../../images/medications.png")} />
             </button>
           </div>
           <div className='testResultsCard'>
-            <button className='cardButton' onClick={()=> {window.location.href='/record/results'}}>
+            <button className='cardButton' onClick={()=> {window.location.href='/frontend/record/results'}}>
               {/* Test Results */}
               <img style={{ width: 310 }} src={require("../../images/testResults.png")} />
             </button>
