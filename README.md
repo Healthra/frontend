@@ -1,4 +1,4 @@
-https://healthra.github.io/
+https://healthra.github.io/frontend
 
 ## Available Scripts
 
