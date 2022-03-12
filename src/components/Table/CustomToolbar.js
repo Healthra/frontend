@@ -43,6 +43,10 @@ class CustomToolbar extends React.Component {
       });
     }
 
+    handlePrintClick() {
+      window.print();
+    }
+
     render() {
         return (
             <React.Fragment>

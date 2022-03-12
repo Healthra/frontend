@@ -55,13 +55,15 @@
     border-radius: 5px;
     background-color: #C2DAB7;
     border-color: #C2DAB7;
-    color: #000000
+    color: #000000;
+    -webkit-print-color-adjust: exact;
 }
 
 #records .nav button.active {
     background-color: #4F734B;
     border-color: #4F734B;
     color: #F1F1F1;
+    -webkit-print-color-adjust: exact;
 }
 
 #records .nav button:hover {

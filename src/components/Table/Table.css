@@ -156,3 +156,9 @@
 .css-iqd1hh-MuiButtonBase-root-MuiChip-root {
     margin-right: 5px !important;
 }
+
+@media print {
+    div {
+      display: table;
+    }
+  }
