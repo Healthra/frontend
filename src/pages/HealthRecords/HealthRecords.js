@@ -152,7 +152,7 @@ class HealthRecords extends React.Component {
                     <Route path={'*'} element={<Navigate to='/record/trends'/>} />
                   </Routes>
                   <div className={this.state.page === 'trends' ? '' : 'hide'}>
-                    <Chart />
+                  
                   </div>
                   <div className={this.state.page === 'trends' ? 'hide' : ''}>
                     <Table page={this.state.page} data={this.state.data} needsUpdate={!this.state.isLoading}/>
