@@ -136,7 +136,7 @@ class HealthRecords extends React.Component {
                 <button className={this.isOnHistoryPage(this.state.page) ? 'active' : ''}>Medical History</button>
               </Link>
             </div>
-            <div className='content'>
+            <div id="healthRecord" className='content'>
                 <div className='card'>
                   <Routes>
                     <Route path={'/trends'} element={<Trends/>} />
