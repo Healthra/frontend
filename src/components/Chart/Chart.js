@@ -26,63 +26,67 @@ const data = [
 class Chart extends React.Component {
   render() {
     return (
-      <VictoryChart
-        width={900}
-        height={500}
-        padding={{ top: 60, bottom: 80, left: 70, right: 100 }}
-        domain={{ y: [80, 140] }}
-        containerComponent={
-          <VictoryCursorVoronoiContainer
-            cursorDimension="x"
-            voronoiDimension="x"
+      <div>
+        {this.props.typeValue}
+        {this.props.timeValue}
+        <VictoryChart
+          width={900}
+          height={500}
+          padding={{ top: 60, bottom: 80, left: 70, right: 100 }}
+          domain={{ y: [80, 140] }}
+          containerComponent={
+            <VictoryCursorVoronoiContainer
+              cursorDimension="x"
+              voronoiDimension="x"
+            />
+          }
+        >
+          <VictoryAxis
+            dependentAxis
+            crossAxis
+            offsetX={100}
+            orientation="right"
+            label="Pounds"
+            style={{
+              axisLabel: { fontSize: 20, padding: 40 }
+            }}
           />
-        }
-      >
-        <VictoryAxis
-          dependentAxis
-          crossAxis
-          offsetX={100}
-          orientation="right"
-          label="Pounds"
-          style={{
-            axisLabel: { fontSize: 20, padding: 40 }
-          }}
-        />
-        <VictoryAxis
-          crossAxis
-          label="Year"
-          scale={{ x: "time" }}
-          tickValues={data.map((d) => d.x)}
-          tickFormat={(x) => new Date(x).getFullYear()}
-          style={{
-            axisLabel: { fontSize: 20, padding: 40 }
-          }}
-        />
-        <VictoryGroup data={data} color="#0F2DC9">
-          <VictoryLine
-            data={data}
-            style={{ data: { strokeWidth: 3 } }}
-            // labels={(d) =>
-            //   d.y +
-            //   " lbs" +
-            //   "\n" +
-            //   d.x.toDateString().split(" ").slice(1).join(" ")
-            // }
-            labelComponent={
-              <VictoryTooltip
-                cornerRadius={8}
-                pointerLength={15}
-                pointerWidth={0}
-                flyoutStyle={{
-                  stroke: "black",
-                  fill: "white"
-                }}
-              />
-            }
+          <VictoryAxis
+            crossAxis
+            label="Year"
+            scale={{ x: "time" }}
+            tickValues={data.map((d) => d.x)}
+            tickFormat={(x) => new Date(x).getFullYear()}
+            style={{
+              axisLabel: { fontSize: 20, padding: 40 }
+            }}
           />
-          <VictoryScatter data={data} size={({ active }) => (active ? 4 : 5)} />
-        </VictoryGroup>
-      </VictoryChart>
+          <VictoryGroup data={data} color="#0F2DC9">
+            <VictoryLine
+              data={data}
+              style={{ data: { strokeWidth: 3 } }}
+              labels={(d) =>
+                d.y +
+                " lbs" +
+                "\n" +
+                new Date(d.x).toDateString().split(" ").slice(1).join(" ")
+              }
+              labelComponent={
+                <VictoryTooltip
+                  cornerRadius={8}
+                  pointerLength={15}
+                  pointerWidth={0}
+                  flyoutStyle={{
+                    stroke: "black",
+                    fill: "white"
+                  }}
+                />
+              }
+            />
+            <VictoryScatter data={data} size={({ active }) => (active ? 4 : 5)} />
+          </VictoryGroup>
+        </VictoryChart>
+      </div>
     );
   }
 }
