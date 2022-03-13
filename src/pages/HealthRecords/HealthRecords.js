@@ -10,7 +10,7 @@ import Table from '../../components/Table/Table';
 import Chart from '../../components/Chart/Chart'
 import '../pages.css';
 
-const API_URL = 'http://localhost:8080/healthrecords?email=abc@gmail.com';
+const API_URL = 'http://localhost:8080/healthrecords?email=klaudius@gmail.com';
 
 class HealthRecords extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class HealthRecords extends React.Component {
     this.state = {
       page: page,
       data: {},
-      email: 'abc@gmail.com',
+      email: 'klaudius@gmail.com',
       name: '',
       id: '',
       isLoading: true

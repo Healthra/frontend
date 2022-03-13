@@ -9,8 +9,8 @@ const Dashboard = (props) =>{
             <h1>Home</h1>
           </div>
           <div className='rightColumn borderLeft'>
-              <h2>Jonathan Klaudius Doe</h2>
-              <h3>ID: 58936 email: jondoe@gmail.com</h3>
+              <h2>Jonathan Doe</h2>
+              <h3>ID: 4 email: klaudius@gmail.com</h3>
           </div>
       </div>
       <div className='cardWrap'>
