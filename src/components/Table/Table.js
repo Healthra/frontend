@@ -380,7 +380,7 @@ class Table extends React.Component {
         print: false,
         filter: true,
         filterType: 'checkbox',
-        disableToolbarSelect: true,
+        selectToolbarPlacement: true,
         selectToolbarPlacement: "none",
         onRowSelectionChange: (currentRow, allRows) => {
             this.onRowSelectionChange(allRows)

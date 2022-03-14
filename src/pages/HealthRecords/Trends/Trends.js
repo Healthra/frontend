@@ -214,31 +214,31 @@ class Trends extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      typeValue:  "Height",
+      typeValue:  "heightData",
       timeValue: "All Time",
       data: this.props.data,
-      needsUpdate: this.props.needsUpdate
+      // needsUpdate: this.props.needsUpdate,
     }
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.needsUpdate !== prevProps.needsUpdate) {
+    if(this.props.data !== prevProps.data) {
         this.setState({
             data: this.props.data,
-            needsUpdate: this.props.needsUpdate
+            // needsUpdate: this.props.needsUpdate
         });
     }
   } 
 
   type() {
     return (
-      <CustomSelect onChange={v=> this.setState({ typeValue: v})} defaultValue="Height">
+      <CustomSelect onChange={v=> this.setState({ typeValue: v})} defaultValue="heightData">
         <CustomOptionGroup label="Vitals">
           <StyledOption value="Blood Pressure">Blood Pressure</StyledOption>
           <StyledOption value="Heart Rate">Heart Rate</StyledOption>
           <StyledOption value="Respiration Rate">Respiration Rate</StyledOption>
           <StyledOption value="Temperature">Temperature</StyledOption>
-          <StyledOption value="Height">Height</StyledOption>
+          <StyledOption value="heightData">Height</StyledOption>
           <StyledOption value="Weight">Weight</StyledOption>
         </CustomOptionGroup>
         <CustomOptionGroup label="Complete Blood Count (CBC)">
@@ -288,7 +288,7 @@ class Trends extends React.Component {
           {this.type()}
           {this.time()}
         </div>
-        <Chart typeValue={this.state.typeValue} timeValue={this.state.timeValue} data={this.state.data} needsUpdate={this.state.needsUpdate}/>
+        <Chart typeValue={this.state.typeValue} timeValue={this.state.timeValue} data={this.state.data} />
       </div>
     );
   }
