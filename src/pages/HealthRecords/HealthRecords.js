@@ -10,7 +10,7 @@ import Table from '../../components/Table/Table';
 import Chart from '../../components/Chart/Chart'
 import '../pages.css';
 
-const API_URL = 'http://localhost:8080/healthrecords?email=klaudius@gmail.com';
+const API_URL = 'http://localhost:8080/healthrecords?email=klaudius123@gmail.com';
 
 class HealthRecords extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class HealthRecords extends React.Component {
     this.state = {
       page: page,
       data: {},
-      email: 'klaudius@gmail.com',
+      email: 'klaudius123@gmail.com',
       name: '',
       id: '',
       isLoading: true
@@ -58,7 +58,8 @@ class HealthRecords extends React.Component {
             "immunizations": resp.immunizations,
             "family": resp.familyMemberHistories,
             "procedures": resp.procedures,
-            "illnesses": resp.pastIllnesses
+            "illnesses": resp.pastIllnesses,
+            "trends": resp.trendData
           }
           this.setState({
             name: name,
@@ -139,7 +140,7 @@ class HealthRecords extends React.Component {
             <div id="healthRecord" className='content'>
                 <div className='card'>
                   <Routes>
-                    <Route path={'/trends'} element={<Trends/>} />
+                    <Route path={'/trends'} element={<Trends data={this.state.data.trends} needsUpdate={!this.state.isLoading}/>} />
                     <Route path={'/medications'} element={<Medications/>} />
                     <Route path={'/results'} element={<TestResults/>} />
                     <Route path={'/conditions'} element={<CurrentConditions/>} />
@@ -151,9 +152,6 @@ class HealthRecords extends React.Component {
                     <Route path={'/history'} element={<Navigate to='/record/history/immunizations'/>} />
                     <Route path={'*'} element={<Navigate to='/record/trends'/>} />
                   </Routes>
-                  <div className={this.state.page === 'trends' ? '' : 'hide'}>
-                  
-                  </div>
                   <div className={this.state.page === 'trends' ? 'hide' : ''}>
                     <Table page={this.state.page} data={this.state.data} needsUpdate={!this.state.isLoading}/>
                   </div>

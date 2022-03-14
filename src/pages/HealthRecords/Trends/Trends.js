@@ -215,9 +215,25 @@ class Trends extends React.Component {
     super(props);
     this.state = {
       typeValue:  "Height",
-      timeValue: "All Time"
+      timeValue: "All Time",
+      data: this.props.data,
+      needsUpdate: this.props.needsUpdate
     }
   }
+
+  componentDidMount() {
+    this.setState({
+      data: this.props.data
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if(this.props.needsUpdate !== prevProps.needsUpdate) {
+        this.setState({
+            data: this.props.data
+        });
+    }
+  } 
 
   type() {
     return (
@@ -277,7 +293,7 @@ class Trends extends React.Component {
           {this.type()}
           {this.time()}
         </div>
-        <Chart typeValue={this.state.typeValue} timeValue={this.state.timeValue} />
+        <Chart typeValue={this.state.typeValue} timeValue={this.state.timeValue} data={this.state.data} needsUpdate={this.state.needsUpdate}/>
       </div>
     );
   }

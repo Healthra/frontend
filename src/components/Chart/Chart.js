@@ -24,6 +24,28 @@ const data = [
 ];
 
 class Chart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: this.props.data,
+      needsUpdate: this.props.needsUpdate
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      data: this.props.data
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if(this.props.needsUpdate !== prevProps.needsUpdate) {
+        this.setState({
+            data: this.props.data
+        });
+    }
+  } 
+
   render() {
     return (
       <div>
