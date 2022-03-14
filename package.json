@@ -3,6 +3,12 @@
   "name": "healthra",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
@@ -50,6 +56,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@babel/preset-react": "^7.16.7",
+    "babel-jest": "^27.5.1",
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "react-test-renderer": "^17.0.2"
