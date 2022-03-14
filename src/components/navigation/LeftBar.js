@@ -28,10 +28,10 @@ export default props => {
       <Link className="menu-item" to="/">
         Home
       </Link>
-      <Link class="dropdown-btn" to="/record">Health Records
-        <i class="fa fa-caret-down"></i>
+      <Link to="/record">Health Records
+        {/* <i className="fa fa-caret-down"></i> */}
       </Link>
-      {/* <div class="dropdown-container">
+      {/* <div className="dropdown-container">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
