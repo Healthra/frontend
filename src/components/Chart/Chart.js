@@ -32,12 +32,6 @@ class Chart extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      data: this.props.data
-    });
-  }
-
   componentDidUpdate(prevProps) {
     if(this.props.needsUpdate !== prevProps.needsUpdate) {
         this.setState({

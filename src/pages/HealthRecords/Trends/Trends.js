@@ -221,16 +221,11 @@ class Trends extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      data: this.props.data
-    });
-  }
-
   componentDidUpdate(prevProps) {
     if(this.props.needsUpdate !== prevProps.needsUpdate) {
         this.setState({
-            data: this.props.data
+            data: this.props.data,
+            needsUpdate: this.props.needsUpdate
         });
     }
   } 
