@@ -236,7 +236,7 @@ class Trends extends React.Component {
           typeValue,
           unit: 'mmHg'
         });
-      case 'heartDataAll':
+      case 'heartDataTwoYears':
         return this.setState({
           typeValue,
           unit: 'BPM'
@@ -274,7 +274,7 @@ class Trends extends React.Component {
       <CustomSelect onChange={(value)=> this.setUnitandType(value)} defaultValue="heightData">
         <CustomOptionGroup label="Vitals">
           <StyledOption value="bpDiastolicData">Blood Pressure</StyledOption>
-          <StyledOption value="heartDataAll">Heart Rate</StyledOption>
+          <StyledOption value="heartDataTwoYears">Heart Rate</StyledOption>
           <StyledOption value="respirationData">Respiration Rate</StyledOption>
           <StyledOption value="temperatureData">Temperature</StyledOption>
           <StyledOption value="heightData">Height</StyledOption>
