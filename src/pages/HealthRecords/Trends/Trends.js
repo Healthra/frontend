@@ -216,8 +216,8 @@ class Trends extends React.Component {
     this.state = {
       typeValue:  "heightData",
       timeValue: "All Time",
+      unit: "cm",
       data: this.props.data,
-      // needsUpdate: this.props.needsUpdate,
     }
   }
 
@@ -225,21 +225,60 @@ class Trends extends React.Component {
     if(this.props.data !== prevProps.data) {
         this.setState({
             data: this.props.data,
-            // needsUpdate: this.props.needsUpdate
         });
     }
   } 
 
+  setUnitandType(typeValue) {
+    switch(typeValue) {
+      case 'bpDiastolicData':
+        return this.setState({
+          typeValue,
+          unit: 'mmHg'
+        });
+      case 'heartDataAll':
+        return this.setState({
+          typeValue,
+          unit: 'BPM'
+        });
+      case 'respirationData':
+        return this.setState({
+          typeValue,
+          unit: 'breaths/min'
+        });
+      case 'temperatureData':
+        return this.setState({
+          typeValue,
+          unit: 'Celcius'
+        });
+      case 'heightData':
+        return this.setState({
+          typeValue,
+          unit: 'cm'
+        });
+      case 'weightData':
+        return this.setState({
+          typeValue,
+          unit: 'lbs'
+        });
+      default:
+        return this.setState({
+          typeValue,
+          unit: 'lbs'
+        });
+    }
+  }
+
   type() {
     return (
-      <CustomSelect onChange={v=> this.setState({ typeValue: v})} defaultValue="heightData">
+      <CustomSelect onChange={(value)=> this.setUnitandType(value)} defaultValue="heightData">
         <CustomOptionGroup label="Vitals">
-          <StyledOption value="Blood Pressure">Blood Pressure</StyledOption>
-          <StyledOption value="Heart Rate">Heart Rate</StyledOption>
-          <StyledOption value="Respiration Rate">Respiration Rate</StyledOption>
-          <StyledOption value="Temperature">Temperature</StyledOption>
+          <StyledOption value="bpDiastolicData">Blood Pressure</StyledOption>
+          <StyledOption value="heartDataAll">Heart Rate</StyledOption>
+          <StyledOption value="respirationData">Respiration Rate</StyledOption>
+          <StyledOption value="temperatureData">Temperature</StyledOption>
           <StyledOption value="heightData">Height</StyledOption>
-          <StyledOption value="Weight">Weight</StyledOption>
+          <StyledOption value="weightData">Weight</StyledOption>
         </CustomOptionGroup>
         <CustomOptionGroup label="Complete Blood Count (CBC)">
           <StyledOption value="Red Blood Cell Count">
@@ -288,7 +327,7 @@ class Trends extends React.Component {
           {this.type()}
           {this.time()}
         </div>
-        <Chart typeValue={this.state.typeValue} timeValue={this.state.timeValue} data={this.state.data} />
+        <Chart typeValue={this.state.typeValue} timeValue={this.state.timeValue} unit={this.state.unit} data={this.state.data} />
       </div>
     );
   }
