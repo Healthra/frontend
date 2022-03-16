@@ -1,11 +1,17 @@
 import HealthRecords from '../../pages/HealthRecords/HealthRecords';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
-import {cleanup, fireEvent, render} from '@testing-library/react';
-import 'jest-canvas-mock';
+
 
 test('Page changes on navigation button click', async () => {
-    const component = render(<HealthRecords page="medications" />);
-    // assert(page === medications)
-    // button.click(trends)
-    // assert(page === trends)
+    delete window.location
+    window.location = new URL('http://localhost3000/frontend/record/medications');
+    
+    const renderer = new ShallowRenderer();
+    renderer.render(<HealthRecords />);
+    const result = renderer.getRenderOutput();
+    console.log(result.props.children);
+    console.log(result);
+
+    expect(result.type).toBe('div');
 });
