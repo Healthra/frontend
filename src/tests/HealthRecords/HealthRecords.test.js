@@ -4,5 +4,8 @@ import {cleanup, fireEvent, render} from '@testing-library/react';
 import 'jest-canvas-mock';
 
 test('Page changes on navigation button click', async () => {
-    // const component = render(<HealthRecords/>);
+    const component = render(<HealthRecords page="medications" />);
+    // assert(page === medications)
+    // button.click(trends)
+    // assert(page === trends)
 });
