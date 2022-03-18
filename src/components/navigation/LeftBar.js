@@ -23,7 +23,7 @@ export default props => {
   return (
     <Menu {...props}>
       <Link to="/">
-        <img style={{ width: 200, paddingBottom: 20 }} src={require("../../images/healthraLogo.png")} />
+        <img alt="logo" style={{ width: 200, paddingBottom: 20 }} src={require("../../images/healthraLogo.png")} />
       </Link>
       <Link className="menu-item" to="/">
         Home

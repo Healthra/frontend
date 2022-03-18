@@ -49,18 +49,18 @@ function Navbar() {
       <Toolbar className={classes.toolBar}>
         <LeftBar />
         <Link to="/">
-          <img className={classes.logoImage} src={require("../../images/healthraLogo.png")} />
+          <img alt="logo" className={classes.logoImage} src={require("../../images/healthraLogo.png")} />
         </Link>
         <div className={classes.navlinks}>
           <Link to="/notifications" className={classes.link}>
-            <img className={classes.image} src={require("../../images/notification.png")} />
+            <img alt="notifications" className={classes.image} src={require("../../images/notification.png")} />
           </Link>
           <Link to="/messages" className={classes.link}>
-            <img className={classes.image} src={require("../../images/message.png")} />
+            <img alt="messages" className={classes.image} src={require("../../images/message.png")} />
           </Link>
           <Link to="/settings" className={classes.link}>
             {/* pop up of settings, reset password,signout should come up */}
-            <img className={classes.image} src={require("../../images/profile.png")} />
+            <img alt="settings" className={classes.image} src={require("../../images/profile.png")} />
           </Link>
         </div>
       </Toolbar>
