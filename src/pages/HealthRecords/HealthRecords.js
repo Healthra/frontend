@@ -50,6 +50,7 @@ class HealthRecords extends React.Component {
             name = resp.patient.firstname + " " + resp.patient.lastname;
             id = resp.patient.ID
           }
+          console.log(resp)
           let data = {
             "medications": resp.medications,
             "results": resp.diagnosticReports,
