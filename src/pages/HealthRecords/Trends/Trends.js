@@ -263,7 +263,7 @@ class Trends extends React.Component {
         });
       default:
         return this.setState({
-          typeValue,
+          typeValue: "heightValue",
           unit: 'lbs'
         });
     }

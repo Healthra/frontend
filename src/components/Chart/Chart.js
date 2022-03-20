@@ -48,6 +48,7 @@ class Chart extends React.Component {
   }
 
   render() {
+    console.log(this.state.selectedData)
     return (
       <div>
         {this.state.selectedData ? (
@@ -87,11 +88,11 @@ class Chart extends React.Component {
              <VictoryLine
                data={this.state.selectedData}
                style={{ data: { strokeWidth: 3 } }}
-               labels={(d) =>
-                 d.y +
+               labels={({datum}) => 
+                 datum.y +
                  " lbs" +
                  "\n" +
-                 new Date(d.x).toDateString().split(" ").slice(1).join(" ")
+                 datum.x.toDateString().split(" ").slice(1).join(" ")
                }
                labelComponent={
                  <VictoryTooltip
@@ -145,11 +146,11 @@ class Chart extends React.Component {
              <VictoryLine
                data={this.state.fakeData}
                style={{ data: { strokeWidth: 3 } }}
-               labels={(d) =>
-                 d.y +
+               labels={({datum}) => 
+                 datum.y +
                  " lbs" +
                  "\n" +
-                 new Date(d.x).toDateString().split(" ").slice(1).join(" ")
+                 datum.x.toDateString().split(" ").slice(1).join(" ")
                }
                labelComponent={
                  <VictoryTooltip
